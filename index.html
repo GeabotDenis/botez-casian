@@ -946,6 +946,7 @@
 
   function startMusic(){
     if(!audioPlayer) return;
+    audioPlayer.currentTime = 64; // Setează pornirea de la minutul 1:04 (64 de secunde)
     audioPlayer.play().then(function() {
       setMusicIcon(true);
     }).catch(function(err){
