@@ -1347,6 +1347,25 @@
     });
   }, { threshold: 0.15 });
   revealItems.forEach(function(el){ io.observe(el); });
+
+  document.addEventListener("visibilitychange", function() {
+    if (!audioPlayer || !envOpened) return; 
+
+    if (document.hidden) {
+      audioPlayer.pause();
+      setMusicIcon(false);
+    } else {
+      audioPlayer.play().then(function() {
+        setMusicIcon(true);
+      }).catch(function(err) {
+        console.log("Browser-ul a blocat reluarea automata:", err);
+      });
+    }
+  });
+
+</script>
+</body>
+</html>
 </script>
 </body>
 </html>
